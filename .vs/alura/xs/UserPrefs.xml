@@ -1,0 +1,13 @@
+﻿<Properties StartupConfiguration="{BD989D38-E5E4-4440-AC1F-04B20E572366}|Default">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../alura/ViewModels/ListagemViewModel.cs" line="14" offsetX="389" offsetY="195" expression="VeiculoSelecionado" liveUpdate="True" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.alura.Android PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.alura.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AA7E8E0E-3871-4558-A004-2F0439A914BE" />
+</Properties>

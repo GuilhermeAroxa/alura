@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:alura" xmlns:vm="clr-namespace:alura.ViewModels" x:Class="alura.Views.ListagemView" Title="Início" >
+    <StackLayout>
+        <!--<Grid VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Azera V6" />
+            <Label Grid.Row="0" Grid.Column="1" Text="60000" />
+            <Label Grid.Row="1" Grid.Column="0" Text="Fiesta 2.0" />
+            <Label Grid.Row="1" Grid.Column="1" Text="50000" />
+            <Label Grid.Row="2" Grid.Column="0" Text="HB20 S" />
+            <Label Grid.Row="2" Grid.Column="1" Text="40000" />
+        </Grid>    -->
+        <ActivityIndicator IsRunning="{Binding Aguarde}" IsVisible="{Binding Aguarde}">      
+        </ActivityIndicator>
+        <ListView x:Name="listviewveiculo" ItemsSource="{Binding Veiculos}" Margin="25" SelectedItem="{Binding VeiculoSelecionado}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">                   
+                                <Label Text="{Binding Nome}" FontSize="Large" VerticalTextAlignment="Center"></Label>
+                                <Label Text=" - " VerticalTextAlignment="Center"></Label>
+                                <Label Text="{Binding PrecoFormatado}" VerticalTextAlignment="Center"></Label>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
