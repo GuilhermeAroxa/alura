@@ -1,4 +1,5 @@
 ﻿using System;
+using alura.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace alura
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.ListagemView());
+            MainPage = new LoginView();
         }
 
         protected override void OnStart()

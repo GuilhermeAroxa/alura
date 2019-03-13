@@ -9,13 +9,23 @@ using Xamarin.Forms;
 
 namespace alura.ViewModels
 {
-    public class ListagemViewModel
+    public class ListagemViewModel : BaseViewModel
     {
         public ObservableCollection<Veiculo> Veiculos { get; set; }
         const string URL_GET_VEICULOS = "http://aluracar.herokuapp.com/";
 
         Veiculo veiculoselecionado;
 
+        private bool aguarde;
+        public bool Aguarde
+        {
+            get { return aguarde; }
+            set 
+            {
+                aguarde = value;
+                OnPropertyChanged(nameof(Aguarde));
+            }
+        }
         public Veiculo VeiculoSelecionado
         {
             get
@@ -33,6 +43,7 @@ namespace alura.ViewModels
         }
         public async Task getveiculos()
         {
+            Aguarde = true;
             HttpClient cliente = new HttpClient();
             var resultado = await cliente.GetStringAsync(URL_GET_VEICULOS);
             var veiculosjson = JsonConvert.DeserializeObject<VeiculosJson[]>(resultado);
@@ -45,6 +56,7 @@ namespace alura.ViewModels
                     Preco = veiculojson.preco
                 });
             }
+            Aguarde = false;
         }
 
         public ListagemViewModel()

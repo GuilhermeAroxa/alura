@@ -9,6 +9,7 @@ namespace alura.Views
     public partial class AgendamentoView : ContentPage
     {
         AgendamentoViewModel viewmodel { get; set; }
+
         public AgendamentoView(Veiculo veiculo)
         {
             InitializeComponent();
@@ -20,24 +21,39 @@ namespace alura.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             MessagingCenter.Subscribe<Agendamento>(this, "MostrarAgendamento",
+                async msg =>
+                {
+                    var confirma = await DisplayAlert("Confirmar Agendamento", "Deseja confirmar o agendamento?", "Sim", "Não");
+
+                    if (confirma)
+                    {
+                        this.viewmodel.SalvarAgendamento();
+                    }
+                }
+            );
+
+            MessagingCenter.Subscribe<Agendamento>(this, "AgendamentoSalvo",
                 msg =>
                 {
-                    DisplayAlert("Agendamento",
-            string.Format(
-            @"Veículo: {0}
-Nome: {1}
-Fone: {2}
-E-mail: {3}
-Data Agendamento: {4}
-Hora Agendamento:{5}",
-            this.viewmodel.Agendamento.Veiculo.Nome, this.viewmodel.Agendamento.Nome, this.viewmodel.Agendamento.Fone, this.viewmodel.Agendamento.Email, this.viewmodel.Agendamento.DataAgendamento.ToString("dd/MM/yyy"), this.viewmodel.Agendamento.HoraAgendamento), "OK");
-                });
+                    DisplayAlert("Pronto", "Agendamento salvo com sucesso", "ok");
+                }
+            );
+            MessagingCenter.Subscribe<ArgumentException>(this, "AgendamentoNaoSalvo",
+                msg =>
+                {
+                    DisplayAlert("Falha", "Algo deu errado, confira os dados e tente novamente", "ok");
+                }
+            );
+
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<Agendamento>(this, "MostrarAgendamento");
+            MessagingCenter.Unsubscribe<Agendamento>(this, "AgendamentoSalvo");
+            MessagingCenter.Unsubscribe<ArgumentException>(this, "AgendamentoNaoSalvo");
         }
     }
 }

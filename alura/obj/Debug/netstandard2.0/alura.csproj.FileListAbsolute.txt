@@ -12,3 +12,4 @@
 /Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/Views/ListagemView.xaml.g.cs
 /Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/Views/DetalhesView.xaml.g.cs
 /Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/Views/AgendamentoView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/Views/LoginView.xaml.g.cs

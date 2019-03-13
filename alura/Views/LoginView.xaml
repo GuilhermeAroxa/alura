@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="alura.Views.LoginView" xmlns:vm="clr-namespace:alura.ViewModels">
+    <ContentPage.BindingContext>
+        
+    </ContentPage.BindingContext>
+        <vm:LoginViewModel></vm:LoginViewModel>
+    <StackLayout VerticalOptions="Center" Margin="64"> 
+        <Entry Placeholder="Usuário"></Entry>
+        <Entry Placeholder="Senha"></Entry>
+    </StackLayout>
+</ContentPage>

@@ -6,16 +6,13 @@ using Xamarin.Forms;
 
 namespace alura.ViewModels
 {
-    public class DetalhesViewModel : INotifyPropertyChanged
+    public class DetalhesViewModel : BaseViewModel
     {
         public Veiculo Veiculo { get; set; }
 
         public bool TemFreioABS
         {
-            get
-            {
-                return Veiculo.TemFreioABS;
-            }
+            get => Veiculo.TemFreioABS;
             set
             {
                 Veiculo.TemFreioABS = value;
@@ -25,10 +22,7 @@ namespace alura.ViewModels
         }
         public bool TemRadio
         {
-            get
-            {
-                return Veiculo.TemRadio;
-            }
+            get => Veiculo.TemRadio;
             set
             {
                 Veiculo.TemRadio = value;
@@ -39,10 +33,7 @@ namespace alura.ViewModels
         }
         public bool TemAr
         {
-            get
-            {
-                return Veiculo.TemAr;
-            }
+            get => Veiculo.TemAr;
             set
             {
                 Veiculo.TemAr = value;
@@ -51,35 +42,12 @@ namespace alura.ViewModels
 
             }
         }
-        public string ValorTotal
-        {
-            get
-            {
-                return Veiculo.PrecoTotalFormatado;
-            }
+        public string ValorTotal => Veiculo.PrecoTotalFormatado;
+        public string TextoFreioABS => string.Format("Freio ABS - {0}", Veiculo.FREIOABS);
+        public string TextoRadio => string.Format("Radio - {0}", Veiculo.RADIO);
+        public string TextoAr => string.Format("Ar Condicionado - {0}", Veiculo.AR);
 
-        }
-        public string TextoFreioABS
-        {
-            get
-            {
-                return string.Format("Freio ABS - {0}", Veiculo.FREIOABS);
-            }
-        }
-        public string TextoRadio
-        {
-            get
-            {
-                return string.Format("Radio - {0}", Veiculo.RADIO);
-            }
-        }
-        public string TextoAr
-        {
-            get
-            {
-                return string.Format("Ar Condicionado - {0}", Veiculo.AR);
-            }
-        }
+        public ICommand ProximoCommand { get; set; }
 
         public DetalhesViewModel(Veiculo veiculo)
         {
@@ -89,14 +57,5 @@ namespace alura.ViewModels
                 MessagingCenter.Send(veiculo, "Proximo");
             });
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        public ICommand ProximoCommand { get; set; }
     }
 }
