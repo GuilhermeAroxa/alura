@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using alura.Models;
 using alura.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,11 +15,18 @@ namespace alura
             InitializeComponent();
 
             MainPage = new LoginView();
+
+            MessagingCenter.Subscribe<Usuario>(this, "LoginSucesso",
+            (usuario) =>
+            {
+                //MainPage = new NavigationPage(new ListagemView());
+                MainPage = new MasterDetailView(usuario);
+            });
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            // Handle when your app start
         }
 
         protected override void OnSleep()

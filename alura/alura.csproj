@@ -27,5 +27,6 @@
     <Compile Remove="Models\EmptyClass.cs" />
     <Compile Remove="ViewModels\EmptyInterface.cs" />
     <Compile Remove="ViewModels\ClasseBase.cs" />
+    <Compile Remove="ViewModels\MasterViewModel.xaml.cs" />
   </ItemGroup>
 </Project>
