@@ -58,7 +58,7 @@ namespace alura.ViewModels
         {
             this.Agendamento = new Agendamento();
             this.Agendamento.Veiculo = veiculo;
-            Teste = "Oi";
+
 
             AgendamentoCommand = new Command(() =>
             {
@@ -102,7 +102,7 @@ namespace alura.ViewModels
             }
 
         }
-        public static string Teste = "Ola";
+
         public ICommand AgendamentoCommand { get; set;  }
 
     }

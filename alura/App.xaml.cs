@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using alura.Models;
 using alura.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace alura
 {
     public partial class App : Application
@@ -15,18 +15,15 @@ namespace alura
             InitializeComponent();
 
             MainPage = new LoginView();
-
-            MessagingCenter.Subscribe<Usuario>(this, "LoginSucesso",
-            (usuario) =>
-            {
-                //MainPage = new NavigationPage(new ListagemView());
-                MainPage = new MasterDetailView(usuario);
-            });
         }
 
         protected override void OnStart()
         {
-            // Handle when your app start
+            MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin",
+                (usuario) =>
+                {
+                    MainPage = new MasterDetailView(usuario);
+                });
         }
 
         protected override void OnSleep()

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using alura.Models;
 using Xamarin.Forms;
@@ -10,46 +11,20 @@ namespace alura
 {
     public class LoginService
     {
-        public async Task FazerLogin(Login login)
+        public async Task<HttpResponseMessage> FazerLogin(Login login)
         {
-            try
+            using (var cliente = new HttpClient())
             {
-                using (var cliente = new HttpClient())
+                cliente.BaseAddress = new Uri("https://aluracar.herokuapp.com");
+                var camposFormulario = new FormUrlEncodedContent(new[]
                 {
-                    var camposFormulario = new FormUrlEncodedContent(new[]
-                    {
-                            new KeyValuePair<string, string>("email", login.Email),
-                            new KeyValuePair<string, string>("senha", login.Senha)
-                        });
+                        new KeyValuePair<string, string>("email", login.email),
+                        new KeyValuePair<string, string>("senha", login.senha)
+                    });
+                var resultado = await cliente.PostAsync("/login", camposFormulario);
 
-                    cliente.BaseAddress = new Uri("http://aluracar.herokuapp.com/");
-
-                    var resultado = await cliente.PostAsync("/login", camposFormulario);
-                    var temp = new Usuario();
-                    if (resultado.IsSuccessStatusCode)
-                    {
-                        MessagingCenter.Send<Usuario>(temp, "LoginSucesso");
-                    }
-                    else
-                    {
-                        MessagingCenter.Send(new LoginException("Os dados inseridos não correspondem a nenhum login em nossa base de dados"), "LoginFalha");
-                    }
-                }
+                return resultado;
             }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                MessagingCenter.Send(new LoginException("Falha na conexào com o servidor, verifique sua conexão com a internet"), "LoginFalha");
-            }
-
-        }
-
-    }
-    class LoginException : Exception
-    {
-        public LoginException(string message) : base(message)
-        {
-
         }
     }
 }

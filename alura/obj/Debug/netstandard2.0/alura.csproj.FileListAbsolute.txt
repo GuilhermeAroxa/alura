@@ -14,3 +14,4 @@
 /Users/cw010/Projects/alura/alura/bin/Debug/netstandard2.0/alura.dll
 /Users/cw010/Projects/alura/alura/bin/Debug/netstandard2.0/alura.pdb
 /Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/cw010/Projects/alura/alura/obj/Debug/netstandard2.0/alura.csprojAssemblyReference.cache

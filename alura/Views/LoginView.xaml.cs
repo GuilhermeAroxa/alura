@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using alura.ViewModels;
 using Xamarin.Forms;
 
 namespace alura.Views
@@ -15,17 +19,17 @@ namespace alura.Views
         {
             base.OnAppearing();
 
-            MessagingCenter.Subscribe<LoginException>(this, "LoginFalha",
-                exce =>
-                {
-                    DisplayAlert("Falha no Login", exce.Message, "Ok");
-                });
+            MessagingCenter.Subscribe<LoginException>(this, "FalhaLogin",
+            async (exc) =>
+            {
+                await DisplayAlert("Login", exc.Message, "Ok");
+            });
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            MessagingCenter.Unsubscribe<LoginException>(this, "LoginFalha");
+            MessagingCenter.Unsubscribe<LoginException>(this, "FalhaLogin");
         }
     }
 }

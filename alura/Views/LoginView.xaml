@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="alura.Views.LoginView" xmlns:vm="clr-namespace:alura.ViewModels">
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:alura.ViewModels"
+             x:Class="alura.Views.LoginView">
     <ContentPage.BindingContext>
-                <vm:LoginViewModel></vm:LoginViewModel>
+        <vm:LoginViewModel></vm:LoginViewModel>
     </ContentPage.BindingContext>
-
-    <StackLayout VerticalOptions="Center" Margin="64"> 
-        <Image Source="teste2.png"></Image>
+    <StackLayout VerticalOptions="Center" Margin="64">
+        <Image Source="aluracar.png"></Image>
         <Entry Placeholder="Usuário" Text="{Binding Usuario}"></Entry>
-        <Entry Placeholder="Senha" Text="{Binding Senha}" IsPassword="true"></Entry>
-        <Button Text="Entrar" Command="{Binding EntrarCommand}"></Button>
+        <Entry Placeholder="Senha" Text="{Binding Senha}" IsPassword="True"></Entry>
+        <Button Text="Entrar" Command="{Binding EntrarCommand}"/>
     </StackLayout>
 </ContentPage>

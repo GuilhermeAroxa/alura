@@ -1,14 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace alura.Models
 {
     public class Login
     {
-        public string Email { get; set; }
-        public string Senha { get; set; }
+        public string email { get; private set; }
+        public string senha { get; private set; }
+
         public Login(string email, string senha)
         {
-            this.Email = email;
-            this.Senha = senha;
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException(nameof(email));
+
+            if (string.IsNullOrEmpty(senha))
+                throw new ArgumentException(nameof(senha));
+
+            this.email = email;
+            this.senha = senha;
         }
     }
 }

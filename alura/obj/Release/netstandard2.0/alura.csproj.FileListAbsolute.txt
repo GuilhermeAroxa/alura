@@ -1,0 +1,17 @@
+/Users/cw010/Projects/alura/alura/bin/Release/netstandard2.0/alura.deps.json
+/Users/cw010/Projects/alura/alura/bin/Release/netstandard2.0/alura.dll
+/Users/cw010/Projects/alura/alura/bin/Release/netstandard2.0/alura.pdb
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/App.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/AgendamentoView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/DetalhesView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/ListagemView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/LoginView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/MasterDetailView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/Views/MasterView.xaml.g.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.csproj.CoreCompileInputs.cache
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.AssemblyInfoInputs.cache
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.AssemblyInfo.cs
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/XamlC.stamp
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.dll
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.pdb
+/Users/cw010/Projects/alura/alura/obj/Release/netstandard2.0/alura.csprojAssemblyReference.cache

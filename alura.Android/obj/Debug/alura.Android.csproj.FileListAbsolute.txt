@@ -34,6 +34,9 @@
 /Users/cw010/Projects/alura/alura.Android/obj/Debug/R.cs.flag
 /Users/cw010/Projects/alura/alura.Android/obj/Debug/R.txt
 /Users/cw010/Projects/alura/alura.Android/obj/Debug/uploadflags.txt
+/Users/cw010/Projects/alura/alura.Android/obj/Debug/res/drawable/aluracar.png
+/Users/cw010/Projects/alura/alura.Android/obj/Debug/res/drawable/icon.png
+/Users/cw010/Projects/alura/alura.Android/obj/Debug/res/drawable/perfil.png
 /Users/cw010/Projects/alura/alura.Android/bin/Debug/Mono.Android.pdb
 /Users/cw010/Projects/alura/alura.Android/bin/Debug/Newtonsoft.Json.pdb
 /Users/cw010/Projects/alura/alura.Android/bin/Debug/Xamarin.Forms.Core.pdb

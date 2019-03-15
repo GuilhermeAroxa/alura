@@ -1,16 +1,47 @@
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="alura.Views.MasterView"
-             Title="Perfil">
-  <Frame OutlineColor="Blue"
-         VerticalOptions="CenterAndExpand"
-         Margin="15">
-      <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-          <Label Text="{Binding teste}"></Label>
-          <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
-          <Label Text="{Binding Email}"></Label>
-          <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
-          <Button Text="Perfil"></Button>
-      </StackLayout>
-  </Frame>
-</ContentPage>
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="alura.Views.MasterView" Title="Perfil" xmlns:converters="clr-namespace:alura.Converters">
+<TabbedPage.Resources>
+  <ResourceDictionary>
+      <converters:NegativoConverter x:Key="negativo"></converters:NegativoConverter>
+  </ResourceDictionary>
+</TabbedPage.Resources>
+    <TabbedPage.Children>
+        <ContentPage Title="Usuário">
+            <Frame OutlineColor="Gray" VerticalOptions="CenterAndExpand" Margin="15">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="{Binding FotoPerfil}"></Image>
+                    <Label Text="{Binding Nome}">
+                    </Label>
+                    <BoxView Color="Blue" HeightRequest="1" HorizontalOptions="Fill">
+                    </BoxView>
+                    <Label Text="{Binding Email}">
+                    </Label>
+                    <BoxView Color="Blue" HeightRequest="1" HorizontalOptions="Fill">
+                    </BoxView>
+                    <Button Text="Perfil" Command="{Binding EditarPerfilCommand}">
+                    </Button>
+                </StackLayout>
+            </Frame>
+        </ContentPage>
+        <ContentPage Title="EDITAR">
+            <Frame OutlineColor="Gray" VerticalOptions="CenterAndExpand" Margin="15">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="{Binding FotoPerfil}"></Image>
+                    <Button Text="Tirar Foto" Command="{Binding TirarFotoCommand}" IsVisible="{Binding Editando}"></Button>
+                    <TableView>
+                        <TableView.Root>
+                            <TableSection Title="Dados Pessoais">
+                                <EntryCell IsEnabled="{Binding Editando}" Placeholder="Nome" Text="{Binding Nome}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editando}" Placeholder="Data de Nascimento" Text="{Binding DataNascimento}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editando}" Placeholder="Telefone" Text="{Binding Telefone}"></EntryCell>
+                                <EntryCell IsEnabled="{Binding Editando}" Placeholder="E-mail" Text="{Binding Email}"></EntryCell>
+                            </TableSection>
+                        </TableView.Root>
+                    </TableView>
+                    <Button Text="Salvar" Command="{Binding SalvarCommand}" IsVisible="{Binding Editando}"></Button>
+                    <Button Text="Editar" Command="{Binding EditarCommand}" IsVisible="{Binding Editando, Converter={StaticResource Key=negativo}}"></Button>
+                </StackLayout>
+            </Frame>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>
