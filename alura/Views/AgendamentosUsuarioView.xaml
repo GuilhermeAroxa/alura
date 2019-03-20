@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="alura.Views.AgendamentosUsuarioView" xmlns:converters="clr-namespace:alura.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ConfirmadoConverter x:Key="cor"></converters:ConfirmadoConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Lista}" Margin="25">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="Center" Font="20" Text="{Binding Modelo}" TextColor="{Binding Confirmado}"></Label>
+                                <Label VerticalOptions="Center" Text=" - " TextColor="{Binding Confirmado}"></Label>
+                                <Label VerticalOptions="Center" FontAttributes="Bold" Text="{Binding DataFormatada}" TextColor="{Binding Confirmado, Converter={StaticResource key=cor}}"></Label>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

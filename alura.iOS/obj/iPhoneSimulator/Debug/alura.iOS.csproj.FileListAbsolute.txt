@@ -4,6 +4,11 @@
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/System.Net.Http.Primitives.dll
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.pdb
+/Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_v2.dll
+/Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.pdb
 /Users/cw010/Projects/alura/alura.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll

@@ -10,11 +10,11 @@ namespace alura.Views
     {
         AgendamentoViewModel viewmodel { get; set; }
 
-        public AgendamentoView(Veiculo veiculo)
+        public AgendamentoView(Veiculo veiculo, Usuario usuario)
         {
             InitializeComponent();
-            this.viewmodel = new AgendamentoViewModel(veiculo);
-            this.Title = this.viewmodel.Agendamento.Veiculo.Nome;
+            this.viewmodel = new AgendamentoViewModel(veiculo, usuario);
+            this.Title = this.viewmodel.Agendamento.Modelo;
             this.BindingContext = this.viewmodel;
         }
 
@@ -35,15 +35,17 @@ namespace alura.Views
             );
 
             MessagingCenter.Subscribe<Agendamento>(this, "AgendamentoSalvo",
-                msg =>
+                async msg =>
                 {
-                    DisplayAlert("Pronto", "Agendamento salvo com sucesso", "ok");
+                    await DisplayAlert("Pronto", "Agendamento salvo com sucesso", "ok");
+                    await Navigation.PopToRootAsync();
                 }
             );
             MessagingCenter.Subscribe<ArgumentException>(this, "AgendamentoNaoSalvo",
-                msg =>
+                async msg =>
                 {
-                    DisplayAlert("Falha", "Algo deu errado, confira os dados e tente novamente", "ok");
+                    await DisplayAlert("Falha", "Algo deu errado, confira os dados e tente novamente", "ok");
+                    await Navigation.PopToRootAsync();
                 }
             );
 

@@ -13,9 +13,11 @@ namespace alura.Views
     public partial class ListagemView : ContentPage
     {
         public ListagemViewModel viewmodel{ get; set; }
-        public ListagemView()
+        readonly Usuario usuario;
+        public ListagemView(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             this.viewmodel = new ListagemViewModel();
             this.BindingContext = this.viewmodel;
         }
@@ -26,7 +28,7 @@ namespace alura.Views
             MessagingCenter.Subscribe<Veiculo>(this, "veiculoselecionado",
             msg =>
             {
-                Navigation.PushAsync(new DetalhesView(msg));
+                Navigation.PushAsync(new DetalhesView(msg, this.usuario));
             });
             await viewmodel.getveiculos();
         }
@@ -41,7 +43,7 @@ namespace alura.Views
         {
             var veiculo = (Veiculo)e.Item;
             //DisplayAlert("Test Drive", string.Format("Você tocou no modelo '{0}', que custa {1}", veiculo.Nome, veiculo.PrecoFormatado), "ok");
-            Navigation.PushAsync(new DetalhesView(veiculo));
+            Navigation.PushAsync(new DetalhesView(veiculo, this.usuario));
         }
     }
 }

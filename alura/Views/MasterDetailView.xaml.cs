@@ -17,6 +17,39 @@ namespace alura.Views
             InitializeComponent();
             this.usuario = usuario;
             this.Master = new MasterView(usuario);
+            this.Detail = new NavigationPage(new ListagemView(usuario));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            AssinarMetodos();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            DesinscreverMetodos();
+        }
+
+        private void AssinarMetodos()
+        {
+            MessagingCenter.Subscribe<Usuario>(this, "MostrarMeusAgendamentos", (usuario) =>
+            {
+                this.Detail = new NavigationPage(new AgendamentosUsuarioView());
+                this.IsPresented = false;
+            });
+            MessagingCenter.Subscribe<Usuario>(this, "NovoAgendamento", (usuario) =>
+            {
+                this.Detail = new NavigationPage(new ListagemView(usuario));
+                this.IsPresented = false;
+            });
+        }
+
+        private void DesinscreverMetodos()
+        {
+            MessagingCenter.Unsubscribe<Usuario>(this, "MostrarMeusAgendamentos");
+            MessagingCenter.Unsubscribe<Usuario>(this, "NovoAgendamento");
         }
     }
 }

@@ -1,13 +1,24 @@
-﻿<Properties StartupConfiguration="{BD989D38-E5E4-4440-AC1F-04B20E572366}|Default">
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{9085CB58-AD4E-4CA8-9E40-7074F4F6CC51}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="alura.Android/SQLite_android.cs">
+    <Files>
+      <File FileName="alura/Views/AgendamentosUsuarioView.xaml" Line="19" Column="41" />
+      <File FileName="alura/Data/AgentamentoDAO.cs" Line="1" Column="1" />
+      <File FileName="alura.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="alura/ViewModels/AgendamentoViewModel.cs" Line="133" Column="63" />
+      <File FileName="alura.Android/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="alura.Android/SQLite_android.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../alura/ViewModels/ListagemViewModel.cs" line="14" offsetX="389" offsetY="195" expression="VeiculoSelecionado" liveUpdate="True" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.alura.Android PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.alura.Android PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/cw010/Projects/alura/alura/Views/AgendamentosUsuarioView.xaml.cs" relfile="alura/Views/AgendamentosUsuarioView.xaml.cs" line="12" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.alura.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AA7E8E0E-3871-4558-A004-2F0439A914BE" />
+  <MonoDevelop.Ide.ItemProperties.alura.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AA7E8E0E-3871-4558-A004-2F0439A914BE" />
 </Properties>

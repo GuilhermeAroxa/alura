@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Input;
+using alura.Data;
 using alura.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -12,6 +13,27 @@ namespace alura.ViewModels
     public class AgendamentoViewModel : BaseViewModel
     {
         public Agendamento Agendamento { get; set; }
+
+        private string modelo;
+        public string Modelo
+        {
+            get { return modelo; }
+            set { this.modelo = value; }
+        }
+
+        private decimal preco;
+        public decimal Preco
+        {
+            get
+            {
+                return preco;
+            }
+            set
+            {
+                this.preco = value;
+            }
+        }
+
         public string Nome
         {
             get { return Agendamento.Nome; }
@@ -54,10 +76,9 @@ namespace alura.ViewModels
             }
         }
 
-        public AgendamentoViewModel(Veiculo veiculo)
+        public AgendamentoViewModel(Veiculo veiculo, Usuario usuario)
         {
-            this.Agendamento = new Agendamento();
-            this.Agendamento.Veiculo = veiculo;
+            this.Agendamento = new Agendamento(usuario.nome, usuario.telefone, usuario.email, veiculo.Nome, veiculo.Preco);
 
 
             AgendamentoCommand = new Command(() =>
@@ -85,14 +106,17 @@ namespace alura.ViewModels
                 nome = Nome,
                 fone = Fone,
                 email = Email,
-                carro = this.Agendamento.Veiculo.Nome,
-                preco = this.Agendamento.Veiculo.Preco,
+                carro = Modelo,
+                preco = Preco,
                 dataAgendamento = dataHoraAgendamento
 
             });
             var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
             var resposta = await cliente.PostAsync(URL_POST_AGENDAMENTO, conteudo);
-            if (resposta.IsSuccessStatusCode)
+
+            SalvarAgendamentoDB();
+            this.Agendamento.Confirmado = resposta.IsSuccessStatusCode;
+            if (this.Agendamento.Confirmado)
             {
                 MessagingCenter.Send<Agendamento>(this.Agendamento, "AgendamentoSalvo");
             }
@@ -101,6 +125,16 @@ namespace alura.ViewModels
                 MessagingCenter.Send<ArgumentException>(new ArgumentException(), "AgendamentoNaoSalvo");
             }
 
+        }
+
+
+        public void SalvarAgendamentoDB()
+        {
+            using (var conexao = DependencyService.Get<ISQLite>().PegarConexao())
+            {
+                AgentamentoDAO dao = new AgentamentoDAO(conexao);
+                dao.Salvar(new Agendamento(Nome, Fone, Email, Modelo, Preco));
+            }
         }
 
         public ICommand AgendamentoCommand { get; set;  }

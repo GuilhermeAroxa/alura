@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,7 @@ namespace alura.ViewModels
         public ImageSource FotoPerfil
         {
             get { return fotoPerfil; }
-            private set { fotoPerfil = value; }
+            private set { fotoPerfil = value; OnPropertyChanged(); }
         }
 
         private readonly Usuario usuario;
@@ -69,6 +70,8 @@ namespace alura.ViewModels
         public ICommand EditarCommand { get; private set; }
         public ICommand SalvarCommand { get; private set; }
         public ICommand TirarFoto { get; private set; }
+        public ICommand MeusAgendamentosCommand { get; private set; }
+        public ICommand NovoAgendamentoCommand { get; private set; }
 
         public MasterViewModel(Usuario usuario)
         {
@@ -98,6 +101,22 @@ namespace alura.ViewModels
             TirarFoto = new Command(() =>
             {
                 DependencyService.Get<ICamera>().TirarFoto();
+            });
+
+            MeusAgendamentosCommand = new Command(() =>
+            {
+                MessagingCenter.Send<Usuario>(usuario, "MostrarMeusAgendamentos");
+            });
+
+            NovoAgendamentoCommand = new Command(() =>
+            {
+                MessagingCenter.Send<Usuario>(usuario, "NovoAgendamento");
+            });
+
+            MessagingCenter.Subscribe<byte[]>(this, "PegarFoto",
+            (bytes) =>
+            {
+                FotoPerfil = ImageSource.FromStream(() => new MemoryStream(bytes));
             });
         }
     }
